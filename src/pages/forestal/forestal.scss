@@ -1,0 +1,20 @@
+page-forestal {
+   
+   .titulo{
+       font-family: "Comic Sans MS", cursive, serif;
+       text-align: center;
+   }
+   .menuForestal{
+   	   background-image: url("../../assets/img/logo_principal.png");
+       background-color: #D8E4FC;
+       background-repeat: no-repeat;
+       background-position: center;
+   }
+   .actions{
+   	   text-align: right;
+   	   margin-top: 20px;
+   }
+   ion-label, ion-input{
+   	 color: black;
+   }
+}

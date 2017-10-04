@@ -1,14 +1,71 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  
+   <ion-navbar color="primary">
+     <button ion-button menuToggle icon-only><ion-icon name="menu"></ion-icon></button>
+     <ion-title class="titulo">GRANT</ion-title>
+   </ion-navbar>
+  
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-split-pane when="lg">
+   
+   <ion-menu [content]="content">
+     <ion-list no-lines>
+       <ion-list-header>Menu</ion-list-header>
+       <button menuClose ion-item *ngFor="let m of menuOpc; index as i" (click)="setContent(i)"> 
+         <ion-icon [name]="m.icon" margin-right></ion-icon> {{m.label}}
+       </button>
+       <ion-list-header>Perfil</ion-list-header>
+       <button ion-item (click)="logout()"> <ion-icon name="md-exit" margin-right></ion-icon>Cerrar Sesion</button>
+     </ion-list>
+   </ion-menu>
+   <ion-nav [root]="root" main #content></ion-nav>
+
+</ion-split-pane>
+
+
+<ion-content padding class="menuPrincipal">
+   <h1>GRANT (Gestor de Recursos Ambientales)</h1>
+   <ion-row ion-col col-12 col-md-12 col-lg-12>
+     <ion-col ion-col col-lg-8>
+       <div hideWhen="mobile">
+         <p class="present">Es una plataforma que permite al usuario registrar la información
+           que concerniente a cuatro (4) variables principales: <br></p>
+         <ul>
+           <li>Calidad del agua.</li>
+           <li>Calidad del aire.</li>
+           <li>Calidad del suelo.</li>
+           <li>Calidad del sonido.</li>
+         </ul>
+         <p class="present" hidenWhen="mobile">Cada uno de estos entornos estan regidos por parametros con los cuales podrá 
+             rellenar cada una de las casillas (obligatoriamente) y así, la aplicación podra realizar
+             conclusiones respecto al medio ambiente en el que se este trabajando.</p>
+       </div>
+     </ion-col>
+     <ion-col ion-col col-12 col-md-12 col-lg-4>
+       <ion-card ion-col col-12 col-md-12 color="itemLight" (click)="setContent(4)">
+         <img src="../../assets/icon/planta.ico"/>
+         <div class="tema">Forestal</div>
+       </ion-card>
+
+       <ion-card ion-col col-12 col-md-12 color="itemLight" (click)="setContent(3)">
+         <img src="../../assets/icon/suelo.ico"/>
+         <div class="tema">Terreno</div>
+       </ion-card>
+
+       <ion-card ion-col col-12 col-md-12 color="itemLight" (click)="setContent(2)">
+         <img src="../../assets/icon/viento.ico"/>
+         <div class="tema">Aire</div>
+       </ion-card>
+
+       <ion-card ion-col col-12 col-md-12 color="itemLight" (click)="setContent(1)">
+         <img src="../../assets/icon/agua.ico"/>
+         <div class="tema">Agua</div>
+       </ion-card>
+       
+     </ion-col>
+   </ion-row>
+   
+
 </ion-content>

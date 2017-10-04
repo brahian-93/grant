@@ -1,0 +1,32 @@
+<ion-header>
+
+   <ion-navbar color="agua">
+     <button ion-button menuToggle icon-only> <ion-icon name="menu"></ion-icon> </button>
+     <ion-title class="titulo">Recurso Forestal</ion-title>
+   </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="menuForestal">
+   
+   <form #form="ngForm">
+     <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
+       <ion-label floating>Proporcion de superficie</ion-label>
+       <ion-input name="psbn" type="number" min="0" max="1" required></ion-input>
+     </ion-item>
+   </form>
+
+   <form #form="ngForm">
+     <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
+       <ion-label floating>Superficie del bosque</ion-label>
+       <ion-input name="scbn" type="number" min="0" max="1" required></ion-input>
+     </ion-item>
+   </form>
+
+   <div class="actions">
+     <button margin-top ion-button color="secondary" (click)="save()">Finalizar</button>
+   </div>
+
+
+</ion-content>

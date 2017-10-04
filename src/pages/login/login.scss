@@ -1,0 +1,31 @@
+page-login {
+    .login-title{
+        font-family: "Comic Sans MS", "cursive", "sans-serif";
+        color:rgb(5, 45, 87);
+        font-size: 5em;
+    }
+
+    .login-main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .login-bg{
+        background-image: url("../../assets/img/login-fondo.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .text-input-wp{
+        border-color: black;
+    }
+}
