@@ -1,19 +1,21 @@
 <ion-header>
-    
-   <ion-navbar color="suelo">
-     <button ion-button menuToggle icon-only> <ion-icon name="menu"></ion-icon> </button>
+   <ion-navbar color="primary">
       <ion-title class="titulo">Calidad de Suelo</ion-title>
    </ion-navbar>
-    
 </ion-header>
     
 <ion-content padding class="menuSuelo">
 
    <form #form="ngForm">
-    
+     
      <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
-       <ion-label floating>Color</ion-label>
-       <ion-select okText="Listo" cancelText="Cancelar" required>
+       <ion-label floating color="dark">Titulo</ion-label>
+       <ion-input name="titulo" type="text" [(ngModel)]="listSuelo.titulo" required></ion-input>
+     </ion-item>
+
+     <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
+       <ion-label floating color="dark">Color</ion-label>
+       <ion-select name="color" [(ngModel)]="listSuelo.color" okText="Listo" cancelText="Cancelar" required>
          <ion-option value="oscuro">Oscuro o negro</ion-option>
          <ion-option value="rojizo">Castaño rojizo</ion-option>
          <ion-option value="amarillo">Amarillento</ion-option>
@@ -22,27 +24,27 @@
      </ion-item>
 
      <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
-       <ion-label floating>pH (Acidez)</ion-label>
-       <ion-input name="pH" type="number" min="0" max="14" required></ion-input>
+       <ion-label floating color="dark">pH (Acidez)</ion-label>
+       <ion-input name="pH" type="number" min="0" max="14" [(ngModel)]="listSuelo.ph" required></ion-input>
      </ion-item>
 
      <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
-       <ion-label floating>Textura</ion-label>
-       <ion-select okText="Listo" cancelText="Cancelar" required>
+       <ion-label floating color="dark">Textura</ion-label>
+       <ion-select name="textura" [(ngModel)]="listSuelo.textura" okText="Listo" cancelText="Cancelar" required>
          <ion-option value="arcilla">Arcilla</ion-option>
          <ion-option value="arena">Arena</ion-option>
          <ion-option value="grava">Grava</ion-option>
        </ion-select>
      </ion-item>
    
-     <div class="actions">
+ <!--    <div class="actions">
        <button ion-button clear (click)="save()"><ion-icon name="add"></ion-icon>Agregar foto</button>
-     </div>
+     </div> -->
 
    </form>
 
    <div class="actions">
-     <button margin-top ion-button color="secondary" (click)="save()">Finalizar</button>
+     <button margin-top ion-button color="secondary" round [disabled]="!form.valid" (click)="save()">Finalizar</button>
    </div>
 
 </ion-content>

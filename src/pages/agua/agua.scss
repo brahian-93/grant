@@ -1,20 +1,21 @@
 page-agua {
 
    .titulo{
-       font-family: "Comic Sans MS", cursive, serif;
-       text-align: center;
+     font-family: "Comic Sans MS", cursive, serif;
    }
    .menuAgua{
-   	   background-image: url("../../assets/img/logo_principal.png");
-       background-color: #D9D9FC;
-       background-repeat: no-repeat;
-       background-position: center;
+ 	   background-image: url("../../assets/icon/agua.ico");
+     background-color: #D9D9FC;
+     background-repeat: no-repeat;
+     background-position: center;
    }
    .actions{
-   	   text-align: right;
-   	   margin-top: 20px;
+ 	   text-align: right;
+ 	   margin-top: 20px;
    }
-   ion-label, ion-input{
+   ion-input{
      color: black;
+     font-family: "Comic Sans MS", cursive, serif;
+     font-size: 1.4em;
    }
 }

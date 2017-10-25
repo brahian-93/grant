@@ -1,36 +1,15 @@
 page-home {
-    .titulo{
-        font-family: "Comic Sans MS", cursive, serif;
-        text-align: center;
-    }
-    .menuPrincipal{
-        background-image: url("../../assets/img/login-fondo.jpg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-    .present{
-        text-align: justify;
-    }
-
-    h1{
-        text-align: center;
-    }
-
-    ion-card{
-        position: relative;
-        text-align: right;
-    }
-    img{
-        width: 100px; height: 100px;
-    }
-    .tema{
-        position: absolute;
-        top: 36%;
-        font-size: 2.0em;
-        width: 90%;
-        font-weight: bold;
-        color: #000;
-    }
-
+   
+   ion-list{
+     color: black;
+     font-family: "Comic Sans MS", cursive, serif;
+     font-size: 1.3em;
+   }
+   ion-list-header{
+   	 text-align: center;
+   }
+   ion-toolbar{
+   	 text-align: center;
+   	 font-family: "Comic Sans MS", cursive, serif;
+   }
 }

@@ -1,0 +1,20 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ 	 <ion-list>
+ 	   <ion-item *ngFor="let parametros of lista">
+ 	     <ion-label floating>Titulo:</ion-label>
+ 	     <ion-input type="text"> {{parametro.list}} </ion-input>
+     </ion-item>
+   </ion-list>
+
+</ion-content>

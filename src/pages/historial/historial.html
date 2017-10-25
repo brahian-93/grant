@@ -1,0 +1,38 @@
+<ion-header>
+   <ion-navbar color="primary">
+     <button ion-button menuToggle icon-only> <ion-icon name='menu'></ion-icon></button>
+     <ion-title class="tituloP">Historial</ion-title>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding class="menuPrincipal">
+
+   <ion-card>
+     <ion-toolbar color="agua"> <ion-card-header>Calidad de agua</ion-card-header> </ion-toolbar>
+     <ion-list *ngFor="let listado of listAgua">
+       <button ion-item> {{listado.titulo}} </button>
+     </ion-list>
+   </ion-card>
+
+   <ion-card>
+     <ion-toolbar color="aire"> <ion-card-header>Calidad del aire</ion-card-header> </ion-toolbar>
+     <ion-list  *ngFor="let listado of listAire">
+       <button ion-item> {{listado.titulo}} </button>
+     </ion-list>
+   </ion-card>
+
+   <ion-card>
+     <ion-toolbar color="forestal"> <ion-card-header>Indice forestal</ion-card-header> </ion-toolbar>
+     <ion-list *ngFor="let listado of listForestal">
+       <button ion-item> {{listado.titulo}} </button>
+     </ion-list>
+   </ion-card>
+
+   <ion-card>
+     <ion-toolbar color="suelo"> <ion-card-header>Terreno</ion-card-header> </ion-toolbar>
+     <ion-list *ngFor="let listado of listSuelo">
+       <button ion-item> {{listado.titulo}} </button>
+     </ion-list>
+   </ion-card>
+
+</ion-content>

@@ -1,62 +1,64 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
+
+import { Storage } from '@ionic/storage';
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { LoginPage } from '../login/login';
-import { Storage } from '@ionic/storage';
-import { LoadingController } from 'ionic-angular';
-
-import { AguaPage } from '../agua/agua';
-import { AirePage } from '../aire/aire';
-import { SueloPage } from '../suelo/suelo';
-import { ForestalPage } from '../forestal/forestal';
+import { RegistroPage } from '../registro/registro';
+import { HistorialPage } from '../historial/historial';
+import { InformacionPage } from '../informacion/informacion';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-  root: any = AguaPage;
+  root: any = InformacionPage;
+  usuario: string;
 
-  constructor(public navCtrl: NavController, public storage:Storage) { }
+  constructor(public navCtrl: NavController, public storage:Storage, private toast: ToastController,
+               private afAuth: AngularFireAuth) { }
 
+  ionViewWillLoad() {
+     console.log('ionViewDidLoad HomePage');
+     this.afAuth.authState.take(1).subscribe(data => { 
+       if( data && data.email && data.uid) {
+           this.toast.create({
+               message: `Bienvenido ${data.email}`, //Extrae desde consola console.log(data));
+               duration: 3000, }).present();
+           this.usuario = `${data.email}`;
+       }
+     });
+   }
+ 
   setContent(index : number)
   {
-    switch(index){
-      case 1:{
-        this.navCtrl.setRoot(AguaPage);
-        break;
-      }
-      case 2:{
-        this.navCtrl.setRoot(AirePage);
-        break;
-      }
-      case 3:{
-        this.navCtrl.setRoot(SueloPage);
-        break;
-      }
-      case 4:{
-        this.navCtrl.setRoot(ForestalPage);
-        break;
-      }
-    }
+     switch(index){
+       case 1:{
+         this.root = RegistroPage;
+         break;
+       }
+       case 2:{
+         this.root = HistorialPage;
+         break;
+       }
+       case 3:{
+         this.root = InformacionPage;
+         break;
+       }
+     }
   }
-
-
-   menuOpc: Menu[] = [
-     { label: 'Noticias', icon: 'md-paper' },
-   ];
-
-
 
   logout() {
      this.storage.set("logged", false);
-     this.navCtrl.setRoot(LoginPage);    
-  }
-
-}
-
-interface Menu {
-   label: string;
-   icon: string;
+     this.navCtrl.setRoot(LoginPage);
+     this.toast.create({
+         message: 'Gracias !!!', //Extrae desde consola console.log(data));
+         duration: 3000
+         }).present(); 
+   }
 }

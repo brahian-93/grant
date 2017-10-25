@@ -1,0 +1,15 @@
+<ion-header>
+   <ion-navbar color="primary">
+     <button ion-button menuToggle icon-only> <ion-icon name='menu'></ion-icon></button>
+     <ion-title class="titulo">Registro</ion-title>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding class="menuPrincipal">
+   
+   <ion-card *ngFor="let listado of cartas, index as i" (click)="setContent(i+1)">
+     <img [src]="listado.imagen"/>
+     <div class="card-title">{{listado.titulo}}</div>
+   </ion-card>
+
+</ion-content>

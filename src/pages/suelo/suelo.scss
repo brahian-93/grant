@@ -2,10 +2,9 @@ page-suelo {
 
 	 .titulo{
      font-family: "Comic Sans MS", cursive, serif;
-     text-align: center;
    }
    .menuSuelo{
-     background-image: url("../../assets/img/logo_principal.png");
+     background-image: url("../../assets/icon/suelo.ico");
      background-color: #D8E4FC;
      background-repeat: no-repeat;
      background-position: center;
@@ -14,8 +13,9 @@ page-suelo {
    	 text-align: right;
    	 margin-top: 20px;
    }
-   ion-label, ion-input{
+   ion-input, ion-select{
      color: black;
+     font-family: "Comic Sans MS", cursive, serif;
+     font-size: 1.4em;
    }
-
 }

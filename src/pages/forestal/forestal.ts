@@ -1,23 +1,33 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController} from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { Forestaldb } from '../../services/forestaldb.service';
 
 @Component({
   selector: 'page-forestal',
   templateUrl: 'forestal.html',
 })
+
 export class ForestalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+   listForestal={idForestal: null,titulo:null, pcds: null, scdb: null};
+   idForestal = null;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController,
+               public forestaldb: Forestaldb) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForestalPage');
   }
 
-  save()
+  public save()
   {
-  	 this.navCtrl.setRoot(HomePage);
+     this.listForestal.idForestal = Date.now();
+     this.forestaldb.createForestal(this.listForestal);
+     this.toast.create({
+         message: `Guardado: ${this.listForestal.titulo}`, //Extrae desde consola console.log(data));
+         duration: 3000, }).present(); 
+     this.navCtrl.pop(); //Regresa a la vista anterior
+     //alert('Elemento almacenado');
   }
+
 }

@@ -1,23 +1,33 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,ToastController } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { Aguadb } from '../../services/aguadb.service';
 
 @Component({
   selector: 'page-agua',
   templateUrl: 'agua.html',
 })
+
 export class AguaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+   listAgua={idAgua: null,titulo:null, ica: null};
+   idAgua = null;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController,
+               public aguadb: Aguadb) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AguaPage');
   }
 
-  save()
+  public save()
   {
-  	 this.navCtrl.setRoot(HomePage);
+     this.listAgua.idAgua = Date.now();
+     this.aguadb.createAgua(this.listAgua);
+     this.toast.create({
+         message: `Guardado: ${this.listAgua.titulo}`, //Extrae desde consola console.log(data));
+         duration: 3000, }).present(); 
+     this.navCtrl.pop();
+     //alert('Elemento almacenado'); //Regresa a la vista anterior
   }
 
 }

@@ -1,0 +1,38 @@
+page-registro {
+   .titulo{
+     font-family: "Comic Sans MS", cursive, serif;
+     letter-spacing: 0;
+     text-shadow: -2px -2px 2px #227F36,
+                   2px -2px 2px #227F36, 
+                  -2px 2px 2px #227F36,
+                   2px 2px 2px #227F36;
+   }
+
+   .menuPrincipal{
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     background-color: #C0F2FF;
+   }
+
+   ion-card {
+     position: relative;
+     text-align: center;
+   }
+
+   .card-title {
+     position: absolute;
+     top: 36%;
+     font-size: 1.6em;
+     width: 100%;
+     font-weight: bold;
+     color: #fff;
+     font-family: "Comic Sans MS", cursive, serif;
+     
+     text-shadow: -2px -2px 2px #227F36,
+                   2px -2px 2px #227F36, 
+                  -2px 2px 2px #227F36,
+                   2px 2px 2px #227F36;
+  }
+
+}

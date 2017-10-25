@@ -1,51 +1,53 @@
 <ion-header>
-    
-   <ion-navbar color="aire">
-       <button ion-button menuToggle icon-only> <ion-icon name="menu"></ion-icon> </button>
-       <ion-title class="titulo">Calidad de Aire</ion-title>
+   <ion-navbar color="primary">
+     <ion-title class="titulo">Calidad de Aire</ion-title>
    </ion-navbar>
-    
 </ion-header>
 
 <ion-content padding class="menuAire">
    <form #form="ngForm">
      <ion-row margin-bottom>
        
+       <ion-item ion-col col-12 col-md-6 col-lg-4 offset-lg-8 color="itemLight">
+         <ion-label floating color="dark">Titulo</ion-label>
+         <ion-input name="titulo" type="text" [(ngModel)]="listAire.titulo" required></ion-input>
+       </ion-item>
+
      	 <ion-item ion-col col-12 col-md-6  color="itemLight">
-     	   <ion-label floating>MP10 - media anual</ion-label>
-         <ion-input name="mpanual" type="number" min="0" required></ion-input>
+     	   <ion-label floating color="dark">MP10 - media anual</ion-label>
+         <ion-input name="mpanual" type="number" min="0" [(ngModel)]="listAire.MP10ma" required></ion-input>
        </ion-item>
 
        <ion-item ion-col col-12 col-md-6  color="itemLight">
-     	   <ion-label floating>MP10 - 24 h</ion-label>
-         <ion-input name="mphora" type="number" min="0" required></ion-input>
+     	   <ion-label floating color="dark">MP10 - 24 h</ion-label>
+         <ion-input name="mphora" type="number" min="0" [(ngModel)]="listAire.MP10h" required></ion-input>
        </ion-item>
 
        <ion-item ion-col col-12 col-md-6  color="itemLight">
-     	   <ion-label floating>Ozono (O3) - 8 h</ion-label>
-         <ion-input name="ozono" type="number" min="0" required></ion-input>
+     	   <ion-label floating color="dark">Ozono (O3) - 8 h</ion-label>
+         <ion-input name="ozono" type="number" min="0" [(ngModel)]="listAire.ozono" required></ion-input>
        </ion-item>
 
        <ion-item ion-col col-12 col-md-6  color="itemLight">
-     	   <ion-label floating>NO2 - media anual</ion-label>
-         <ion-input name="no2anual" type="number" min="0" required></ion-input>
+     	   <ion-label floating color="dark">NO2 - media anual</ion-label>
+         <ion-input name="no2anual" type="number" min="0" [(ngModel)]="listAire.NO2ma" required></ion-input>
        </ion-item>
 
        <ion-item ion-col col-12 col-md-6  color="itemLight">
-     	   <ion-label floating>NO2 - 1 h</ion-label>
-         <ion-input name="no2hora" type="number" min="0" required></ion-input>
+     	   <ion-label floating color="dark">NO2 - 1 h</ion-label>
+         <ion-input name="no2hora" type="number" min="0" [(ngModel)]="listAire.NO2h" required></ion-input>
        </ion-item>
 
        <ion-item ion-col col-12 col-md-6  color="itemLight">
-     	   <ion-label floating>SO2 - 24 h</ion-label>
-         <ion-input name="so2hora" type="number" min="0" required></ion-input>
+     	   <ion-label floating color="dark">SO2 - 24 h</ion-label>
+         <ion-input name="so2hora" type="number" min="0" [(ngModel)]="listAire.SO2" required></ion-input>
        </ion-item>
 
      </ion-row>
    </form>
 
    <div class="actions">
-     <button margin-top ion-button color="secondary" (click)="save()">Finalizar</button>
+     <button margin-top ion-button color="secondary" round [disabled]="!form.valid" (click)="save()">Finalizar</button>
    </div>
 
 </ion-content>

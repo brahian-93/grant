@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController} from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { Airedb } from '../../services/airedb.service';
 
 @Component({
   selector: 'page-aire',
@@ -9,16 +9,27 @@ import { HomePage } from '../home/home';
 })
 export class AirePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+   listAire={idAire: null,titulo:null,
+             MP10ma: null, MP10h: null, ozono: null,
+             NO2ma: null, NO2h: null, SO2: null};
+   idAire = null;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController,
+               public airedb: Airedb) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AirePage');
   }
 
-  save()
+  public save()
   {
-  	 this.navCtrl.setRoot(HomePage);
+     this.listAire.idAire = Date.now();
+     this.airedb.createAire(this.listAire);
+     this.toast.create({
+         message: `Guardado: ${this.listAire.titulo}`, //Extrae desde consola console.log(data));
+         duration: 3000, }).present(); 
+     this.navCtrl.pop(); //Regresa a la vista anterior
+     //alert('Elemento almacenado');
   }
 
 }

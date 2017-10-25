@@ -2,24 +2,20 @@ page-aire {
 
    .titulo{
      font-family: "Comic Sans MS", cursive, serif;
-     text-align: center;
    }
-
    .menuAire{
-     background-image: url("../../assets/img/logo_principal.png");
+     background-image: url("../../assets/icon/viento.ico");
      background-color: #D8E8D7;
      background-repeat: no-repeat;
      background-position: center;
    }
-
-   ion-label, ion-input{
-   	 color: black;
-   }
-
    .actions{
    	 text-align: right;
    	 margin-top: 20px;
    }
-
-
+   ion-input{
+     color: black;
+     font-family: "Comic Sans MS", cursive, serif;
+     font-size: 1.4em;
+   }
 }

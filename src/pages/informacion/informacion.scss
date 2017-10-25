@@ -1,0 +1,41 @@
+page-informacion {
+
+   .titulo{
+     font-family: "Comic Sans MS", cursive, serif;
+     letter-spacing: 0;
+     text-shadow: -2px -2px 2px #227F36,
+                   2px -2px 2px #227F36, 
+                  -2px 2px 2px #227F36,
+                   2px 2px 2px #227F36;
+   }
+
+   .slides-principal{
+   	 background-image: url("../../assets/img/degradado2.jpg");
+   	 background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+   }
+
+   .slide-image {
+     max-height: 50%;
+     max-width: 60%;
+     margin: 18px 0;
+  }
+
+  .slide-title{
+  	 font-family: "Comic Sans MS", cursive, serif;
+  	 letter-spacing: 0;
+     text-shadow: -1px -1px 1px #1E86AF,
+                   1px -2px 1px #1E86AF, 
+                  -1px 1px 1px #1E86AF,
+                   1px 1px 1px #1E86AF;
+  }
+
+  p {
+     //padding: 0 40px;
+     font-size: 15px;
+     //line-height: 1.5;
+     font-family: "Comic Sans MS", cursive, serif;
+  }
+
+}

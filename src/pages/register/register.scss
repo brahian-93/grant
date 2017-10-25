@@ -1,0 +1,44 @@
+page-register {
+
+	 .titulo{
+     font-family: "Comic Sans MS", cursive, serif;
+     letter-spacing: 0;
+     text-shadow: -2px -2px 2px #227F36,
+                   2px -2px 2px #227F36, 
+                  -2px 2px 2px #227F36,
+                   2px 2px 2px #227F36;
+   }
+
+   .login-bg{
+       background-image: url("../../assets/img/login-fondo.jpg");
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
+   }
+
+   .login-main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+   }
+
+   .login-form{
+       display: flex;
+       flex-direction: column;
+       flex: 1;
+       justify-content: center;
+   }
+
+   .styletext{
+       font-family: "Comic Sans MS", cursive, serif;
+       font-size: 1.3em;
+       color: #1A4DFF;
+       letter-spacing: 0;
+   }
+   .text{
+       justify-content: center;
+       font-size: 1.3em;
+       color: #C9D6FF;
+   }
+
+}

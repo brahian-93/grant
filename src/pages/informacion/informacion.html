@@ -1,0 +1,25 @@
+<ion-header>
+   <ion-navbar color="primary">
+     <button ion-button menuToggle icon-only> <ion-icon name='menu'></ion-icon></button>
+     <ion-title class="titulo">Información</ion-title>
+   </ion-navbar>
+</ion-header>
+
+
+<ion-content padding  class="slides-principal">
+
+	 <ion-slides pager>
+	 	 <ion-slide>
+       <img src="../assets/img/logo_principal.png"/>
+       <h2 class="slide-title">Bienvenido a GRANT</h2>
+       <p><strong>Recursos ambientales</strong></p>
+     </ion-slide>
+
+		 <ion-slide *ngFor="let slide of plantillas">
+       <img [src]="slide.imagen" class="slide-image"/>
+       <h2 class="slide-title" [innerHTML]="slide.titulo"></h2>
+       <p [innerHTML]="slide.descripcion"></p>
+     </ion-slide>
+   </ion-slides>
+
+</ion-content>

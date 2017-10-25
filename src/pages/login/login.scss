@@ -1,8 +1,13 @@
 page-login {
     .login-title{
-        font-family: "Comic Sans MS", "cursive", "sans-serif";
-        color:rgb(5, 45, 87);
-        font-size: 5em;
+       font-family: "Comic Sans MS", "cursive", "sans-serif";
+       color: #C9D6FF;
+       font-size: 4em;
+       letter-spacing: 0;
+       text-shadow: -2px -2px 2px #0000DF, 
+                     2px -2px 2px #0000DF,
+                    -2px 2px 2px #0000DF,
+                     2px 2px 2px #0000DF;
     }
 
     .login-main{
@@ -25,7 +30,10 @@ page-login {
         background-size: cover;
     }
 
-    .text-input-wp{
-        border-color: black;
-    }
+    .styletext{
+       font-family: "Comic Sans MS", cursive, serif;
+       font-size: 1.3em;
+       color: #1A4DFF;
+       letter-spacing: 0;
+     }
 }

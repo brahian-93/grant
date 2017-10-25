@@ -1,20 +1,21 @@
 page-forestal {
    
    .titulo{
-       font-family: "Comic Sans MS", cursive, serif;
-       text-align: center;
+     font-family: "Comic Sans MS", cursive, serif;
    }
    .menuForestal{
-   	   background-image: url("../../assets/img/logo_principal.png");
-       background-color: #D8E4FC;
-       background-repeat: no-repeat;
-       background-position: center;
+ 	   background-image: url("../../assets/icon/planta.ico");
+     background-color: #D8E4FC;
+     background-repeat: no-repeat;
+     background-position: center;
    }
    .actions{
-   	   text-align: right;
-   	   margin-top: 20px;
+ 	   text-align: right;
+ 	   margin-top: 20px;
    }
-   ion-label, ion-input{
-   	 color: black;
+   ion-input{
+     color: black;
+     font-family: "Comic Sans MS", cursive, serif;
+     font-size: 1.4em;
    }
 }
