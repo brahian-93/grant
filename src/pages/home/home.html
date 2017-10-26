@@ -1,18 +1,17 @@
-<ion-split-pane when="lg">
+<ion-split-pane when="lg" >
    <ion-menu [content]="content">
      <ion-header> 
          <ion-toolbar color="agua"> <ion-title>Menu</ion-title> </ion-toolbar> 
      </ion-header>
-     <ion-content>
+     <ion-content >
        <ion-list>
-         <ion-list-header>Caracteristicas</ion-list-header>
-         <button menuClose ion-item (click)="setContent(1)"> Registro <ion-icon name="md-paper" margin-left></ion-icon> </button>
-         <button menuClose ion-item (click)="setContent(2)"> Historial <ion-icon name="md-filing" margin-left></ion-icon> </button>
-         <button menuClose ion-item (click)="setContent(3)">Informacion
-                 <ion-icon name="md-information-circle" margin-left></ion-icon></button>
-         <ion-list-header>Salir</ion-list-header>
-         <button menuClose ion-item outline (click)="logout()"> 
-               Cerrar sesión <ion-icon name="md-exit" margin-left></ion-icon></button>
+         <ion-list-header><b>Caracteristicas</b></ion-list-header>
+         <button menuClose ion-item (click)="setContent(1)"> <ion-icon name="md-paper" margin-right></ion-icon>Registro</button>
+         <button menuClose ion-item (click)="setContent(2)"> <ion-icon name="md-filing" margin-right></ion-icon>Historial</button>
+         <button menuClose ion-item (click)="setContent(3)"> 
+               <ion-icon name="md-information-circle" margin-right></ion-icon>Informacion</button>
+         <ion-list-header><b>Salir</b></ion-list-header>
+         <button menuClose ion-item outline (click)="logout()"><ion-icon name="md-exit" margin-right></ion-icon>Cerrar sesión</button>
          <button menuClose ion-item> User:{{usuario}} </button>
        </ion-list>
      </ion-content>
