@@ -1,25 +1,8 @@
 import { Component, ViewChild} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-
-import { Firebase } from '@ionic-native/firebase';
-import firebase  from 'firebase';
-
-import { Storage } from '@ionic/storage';
-
-import { Aguadb } from '../../services/aguadb.service';
-import { Airedb } from '../../services/airedb.service';
-import { Forestaldb } from '../../services/forestaldb.service';
-import { Suelodb } from '../../services/suelodb.service';
-
-//import { DetallesPage } from '../detalles/detalles';
-
-import { AguaPage } from '../agua/agua';
-import { AirePage } from '../aire/aire';
-import { SueloPage } from '../suelo/suelo';
-import { ForestalPage } from '../forestal/forestal';
 
 
 @Component({
@@ -33,29 +16,55 @@ export class HistorialPage {
    public listForestal: Array<any> = [];
    public listSuelo: Array<any> = [];
 
+   detail: string;
+
+   public ref;
+
    @ViewChild('myNav') nav: NavController;
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-              private afAuth: AngularFireAuth, private afDB: AngularFireDatabase,
-              public aguadb: Aguadb) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
+              private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public toast : ToastController,
+              public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
      console.log('ionViewDidLoad HistorialPage');
+     this.presentLoading();
      this.Read(1);this.Read(2);this.Read(3);this.Read(4);
   }
-/*
-  public goToDetallesAgua(idAgua){
-    this.navCtrl.push(DetallesPage,{idAgua});
+
+  public goToDetalles(detalle,index:number){
+    switch (index) {
+      case 1:
+         this.detail = "ICA: " + detalle.ica;
+      break;
+      case 2:
+         this.detail = "MP10-M.Anual: " + detalle.MP10ma + "<br>" +
+                       "MP10-24h: " + detalle.MP10h + "<br>" +
+                       "Ozono-8h: " + detalle.ozono + "<br>" +
+                       "NO2-M.Anual: " + detalle.NO2ma + "<br>" +
+                       "NO2-1h: " + detalle.NO2h + "<br>" +
+                       "SO2-24H: " + detalle.SO2;
+      break;
+      case 3:
+         this.detail = "Superficie bosque: " + detalle.pcds + "<br>" +
+                       "Superficie ref.: " + detalle.scdb;
+      break;
+      case 4:
+         this.detail = "Color: " + detalle.color + "<br>" +
+                       "ph.: " + detalle.ph + "<br>" +
+                       "Textura: " + detalle.textura;
+
+      break;
+    }
+     this.detail = this.detail + "<br>" +
+                   "Latitud: " + detalle.lat + "<br>" +
+                   "Longitud: " + detalle.long;
+     const alert = this.alertCtrl.create({
+       title: `<p style="text-align: center;">${detalle.titulo}</p>`,
+       subTitle: this.detail,
+       buttons: ['OK']
+     });
+     alert.present();
   }
-  public goToDetallesAire(idAire){
-    this.navCtrl.push(DetallesPage,{idAire});
-  }
-  public goToDetallesForestal(idForestal){
-    this.navCtrl.push(DetallesPage,{idForestal});
-  }
-  public goToDetallesSuelo(idSuelo){
-    this.navCtrl.push(DetallesPage,{idSuelo});
-  } */
 
    public Read(index: number){
      this.afAuth.authState.subscribe(data => { 
@@ -67,7 +76,6 @@ export class HistorialPage {
                    this.listAgua.push( item.val() );
                    return false;
                });
-               console.log(this.listAgua);
            });
          break;
          case 2:
@@ -77,7 +85,6 @@ export class HistorialPage {
                    this.listAire.push( item.val() );
                    return false;
                });
-               console.log(this.listAire);
            });
          break;
          case 3:
@@ -87,7 +94,6 @@ export class HistorialPage {
                    this.listForestal.push( item.val() );
                    return false;
                });
-               console.log(this.listForestal);
            });
          break;
          case 4:
@@ -97,11 +103,44 @@ export class HistorialPage {
                    this.listSuelo.push( item.val() );
                    return false;
                });
-               console.log(this.listSuelo);
            });
          break;
        }
      });
+   }
+
+   public delete( listado, index: number){
+     this.afAuth.authState.subscribe(data => { 
+       switch (index) {
+         case 1:
+           this.ref = this.afDB.database.ref(`${data.uid}/Agua`);
+           this.ref.child(listado.idAgua).remove();
+         break;
+         case 2:
+           this.ref = this.afDB.database.ref(`${data.uid}/Aire`);
+           this.ref.child(listado.idAire).remove();
+         break;
+         case 3:
+           this.ref = this.afDB.database.ref(`${data.uid}/Forestal`);
+           this.ref.child(listado.idForestal).remove();
+         break;
+         case 4:
+           this.ref = this.afDB.database.ref(`${data.uid}/Suelo`);
+           this.ref.child(listado.idSuelo).remove();
+         break;
+       }
+       this.toast.create({
+           message: `Elemento borrado`, //Extrae desde consola console.log(data));
+           duration: 3000, }).present();
+     });
+   }
+
+   presentLoading() {
+     let loader = this.loadingCtrl.create({
+       content: "Espere...",
+       duration: 3000
+     });
+     loader.present();
    }
 }
 

@@ -3,7 +3,7 @@
      <ion-header> 
          <ion-toolbar color="agua"> <ion-title>Menu</ion-title> </ion-toolbar> 
      </ion-header>
-     <ion-content >
+     <ion-content>
        <ion-list>
          <ion-list-header><b>Caracteristicas</b></ion-list-header>
          <button menuClose ion-item (click)="setContent(1)"> <ion-icon name="md-paper" margin-right></ion-icon>Registro</button>
@@ -12,7 +12,7 @@
                <ion-icon name="md-information-circle" margin-right></ion-icon>Informacion</button>
          <ion-list-header><b>Salir</b></ion-list-header>
          <button menuClose ion-item outline (click)="logout()"><ion-icon name="md-exit" margin-right></ion-icon>Cerrar sesión</button>
-         <button menuClose ion-item> User:{{usuario}} </button>
+         <button ion-item> {{usuario}} </button>
        </ion-list>
      </ion-content>
    </ion-menu>

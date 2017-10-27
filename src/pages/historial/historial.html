@@ -7,32 +7,56 @@
 
 <ion-content padding class="menuPrincipal">
 
-   <ion-card>
-     <ion-toolbar color="agua"> <ion-card-header>Calidad de agua</ion-card-header> </ion-toolbar>
+   <ion-item-group>
+
+     <ion-item-divider color="agua"><ion-icon name="color-wand"></ion-icon><b> Calidad de agua</b></ion-item-divider>
      <ion-list *ngFor="let listado of listAgua">
-       <button ion-item> {{listado.titulo}} </button>
-     </ion-list>
-   </ion-card>
+       <ion-item-sliding>
+         <button ion-item (click)="goToDetalles(listado,1)"> <ion-icon name="eye"></ion-icon> {{listado.titulo}}
+               <ion-icon item-end name="arrow-back"></ion-icon></button>
 
-   <ion-card>
-     <ion-toolbar color="aire"> <ion-card-header>Calidad del aire</ion-card-header> </ion-toolbar>
-     <ion-list  *ngFor="let listado of listAire">
-       <button ion-item> {{listado.titulo}} </button>
+         <ion-item-options side="right">
+           <button ion-button icon-only (click)="delete(listado,1)"><ion-icon name="md-trash"></ion-icon></button>
+         </ion-item-options>
+       </ion-item-sliding>
      </ion-list>
-   </ion-card>
 
-   <ion-card>
-     <ion-toolbar color="forestal"> <ion-card-header>Indice forestal</ion-card-header> </ion-toolbar>
+     <ion-item-divider color="aire"><ion-icon name="color-wand"></ion-icon><b> Calidad del aire</b></ion-item-divider>
+     <ion-list *ngFor="let listado of listAire">
+       <ion-item-sliding>
+         <button ion-item (click)="goToDetalles(listado,2)"> <ion-icon name="eye"></ion-icon> {{listado.titulo}} 
+               <ion-icon item-end name="arrow-back"></ion-icon></button>
+
+         <ion-item-options side="right">
+           <button ion-button icon-only (click)="delete(listado,2)"><ion-icon name="md-trash"></ion-icon></button>
+         </ion-item-options>
+       </ion-item-sliding>
+     </ion-list>
+
+     <ion-item-divider color="forestal"><ion-icon name="color-wand"></ion-icon><b> Indice forestal</b></ion-item-divider>
      <ion-list *ngFor="let listado of listForestal">
-       <button ion-item> {{listado.titulo}} </button>
-     </ion-list>
-   </ion-card>
+       <ion-item-sliding>
+         <button ion-item (click)="goToDetalles(listado,3)"> <ion-icon name="eye"></ion-icon> {{listado.titulo}}
+               <ion-icon item-end name="arrow-back"></ion-icon></button>
 
-   <ion-card>
-     <ion-toolbar color="suelo"> <ion-card-header>Terreno</ion-card-header> </ion-toolbar>
-     <ion-list *ngFor="let listado of listSuelo">
-       <button ion-item> {{listado.titulo}} </button>
+         <ion-item-options side="right">
+           <button ion-button icon-only (click)="delete(listado,3)"><ion-icon name="md-trash"></ion-icon></button>
+         </ion-item-options>
+       </ion-item-sliding>
      </ion-list>
-   </ion-card>
+
+     <ion-item-divider color="suelo"><ion-icon name="color-wand"></ion-icon><b> Terreno</b></ion-item-divider>
+     <ion-list *ngFor="let listado of listSuelo">
+       <ion-item-sliding>
+         <button ion-item (click)="goToDetalles(listado,4)"> <ion-icon name="eye"></ion-icon> {{listado.titulo}}
+               <ion-icon item-end name="arrow-back"></ion-icon></button>
+
+         <ion-item-options side="right">
+           <button ion-button icon-only (click)="delete(listado,4)"><ion-icon name="md-trash"></ion-icon></button>
+         </ion-item-options>
+       </ion-item-sliding>
+     </ion-list>
+
+   </ion-item-group>
 
 </ion-content>
