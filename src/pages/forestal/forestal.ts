@@ -18,7 +18,7 @@ export class ForestalPage {
    long = null;
    idForestal = null;
   constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController,
-               private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public geolocation: Geolocation) {}
+               private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, private geolocation: Geolocation) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForestalPage');
@@ -27,11 +27,12 @@ export class ForestalPage {
   public save()
   {
      this.listForestal.idForestal = Date.now();
-     this.geolocation.getCurrentPosition().then((rest) => { this.listForestal.lat = rest.coords.latitude });
-     this.geolocation.getCurrentPosition().then((rest) => { this.listForestal.long = rest.coords.longitude });
-     
-     this.afAuth.authState.subscribe(auth => { 
-         this.afDB.database.ref(`${auth.uid}/Forestal/`+this.listForestal.idForestal).set(this.listForestal);} );
+     this.geolocation.getCurrentPosition().then((rest) =>{
+         this.listForestal.lat = rest.coords.latitude;
+         this.listForestal.long = rest.coords.longitude;
+         this.afAuth.authState.subscribe(auth => { 
+           this.afDB.database.ref(`${auth.uid}/Forestal/`+this.listForestal.idForestal).set(this.listForestal); });
+     });
 
      this.toast.create({
          message: `Guardado: ${this.listForestal.titulo}`, //Extrae desde consola console.log(data));

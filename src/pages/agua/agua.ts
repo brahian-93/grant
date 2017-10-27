@@ -18,7 +18,7 @@ export class AguaPage {
    long = null;
    idAgua = null;
   constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController,
-               private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public geolocation: Geolocation){}
+               private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, private geolocation: Geolocation){}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AguaPage');
@@ -27,11 +27,12 @@ export class AguaPage {
   public save()
   {
      this.listAgua.idAgua = Date.now();
-     this.geolocation.getCurrentPosition().then((rest) => { this.listAgua.lat = rest.coords.latitude });
-     this.geolocation.getCurrentPosition().then((rest) => { this.listAgua.long = rest.coords.longitude });
-     
-     this.afAuth.authState.subscribe(auth => { 
-         this.afDB.database.ref(`${auth.uid}/Agua/`+this.listAgua.idAgua).set(this.listAgua);} );
+     this.geolocation.getCurrentPosition().then((rest) => { 
+         this.listAgua.lat = rest.coords.latitude;
+         this.listAgua.long = rest.coords.longitude;
+         this.afAuth.authState.subscribe(auth => { 
+           this.afDB.database.ref(`${auth.uid}/Agua/`+this.listAgua.idAgua).set(this.listAgua);} );
+     });
 
      this.toast.create({
          message: `Guardado: ${this.listAgua.titulo}`, //Extrae desde consola console.log(data));

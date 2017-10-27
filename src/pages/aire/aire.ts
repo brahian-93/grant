@@ -18,7 +18,7 @@ export class AirePage {
    long = null;
    idAire = null;
   constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController,
-               private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public geolocation: Geolocation){}
+               private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, private geolocation: Geolocation){}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AirePage');
@@ -27,11 +27,12 @@ export class AirePage {
   public save()
   {
      this.listAire.idAire = Date.now();
-     this.geolocation.getCurrentPosition().then((rest) => { this.listAire.lat = rest.coords.latitude });
-     this.geolocation.getCurrentPosition().then((rest) => { this.listAire.long = rest.coords.longitude });
-
-     this.afAuth.authState.subscribe(auth => { 
-         this.afDB.database.ref(`${auth.uid}/Aire/`+this.listAire.idAire).set(this.listAire);} );
+     this.geolocation.getCurrentPosition().then((rest) => { 
+         this.listAire.lat = rest.coords.latitude;
+         this.listAire.long = rest.coords.longitude;
+         this.afAuth.authState.subscribe(auth => { 
+           this.afDB.database.ref(`${auth.uid}/Aire/`+this.listAire.idAire).set(this.listAire);} );
+         });
 
      this.toast.create({
          message: `Guardado: ${this.listAire.titulo}`, //Extrae desde consola console.log(data));
