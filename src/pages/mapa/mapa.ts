@@ -52,13 +52,13 @@ export class MapaPage {
    }
 
    addMarker(position, map){
-   	 var img = {
+   	 /*var img = {
        url: "../../assets/img/logo_imagen.png",
        size: new google.maps.Size(71, 71),
        origin: new google.maps.Point(0, 0),
        anchor: new google.maps.Point(17, 34),
        scaledSize: new google.maps.Size(25, 25)
-     };
+     };*/
    	 return new google.maps.Marker({
    	 	 position: position,
    	 	 map: map,
