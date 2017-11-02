@@ -1,0 +1,16 @@
+page-mapa {
+   
+   #map{
+     //display: block;
+     height: 100%;
+     width: 100%;
+   }
+   .titulo{
+     font-family: "Comic Sans MS", cursive, serif;
+     letter-spacing: 0;
+     text-shadow: -2px -2px 2px #227F36,
+                   2px -2px 2px #227F36, 
+                  -2px 2px 2px #227F36,
+                   2px 2px 2px #227F36;
+   }
+}

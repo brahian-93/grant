@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -19,6 +20,7 @@ import { RegisterPage } from '../pages/register/register';
 import { RegistroPage } from '../pages/registro/registro';
 import { HistorialPage } from '../pages/historial/historial';
 import { InformacionPage } from '../pages/informacion/informacion';
+import { MapaPage } from '../pages/mapa/mapa';
 
 import { AguaPage } from '../pages/agua/agua';
 import { AirePage } from '../pages/aire/aire';
@@ -44,6 +46,7 @@ export const firebaseConfig = {
     HistorialPage,
     InformacionPage,
     RegistroPage,
+    MapaPage,
     AguaPage,
     AirePage,
     SueloPage,
@@ -66,6 +69,7 @@ export const firebaseConfig = {
     HistorialPage,
     InformacionPage,
     RegistroPage,
+    MapaPage,
     AguaPage,
     AirePage,
     SueloPage,
@@ -75,6 +79,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     Geolocation,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

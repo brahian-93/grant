@@ -9,6 +9,7 @@ import { LoginPage } from '../login/login';
 import { RegistroPage } from '../registro/registro';
 import { HistorialPage } from '../historial/historial';
 import { InformacionPage } from '../informacion/informacion';
+import { MapaPage } from '../mapa/mapa';
 
 @Component({
   selector: 'page-home',
@@ -48,6 +49,10 @@ export class HomePage {
        }
        case 3:{
          this.root = InformacionPage;
+         break;
+       }
+       case 4:{
+         this.navCtrl.push(MapaPage);
          break;
        }
      }
