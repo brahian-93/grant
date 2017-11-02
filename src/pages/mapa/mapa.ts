@@ -39,7 +39,7 @@ export class MapaPage {
      	 center: location,
      	 zoom: 15,
      	 streetViewControl: false,
-     	 mapTypeId: 'roadmap' //satellite, hibrid, terrain
+     	 mapTypeId: 'hybrid' //roadmap, satellite, hybrid, terrain
      };
 
      const map = new google.maps.Map(this.mapRef.nativeElement,options);
@@ -52,7 +52,21 @@ export class MapaPage {
    }
 
    addMarker(position, map){
-   	 return new google.maps.Marker({position,map});
+   	 var img = {
+       url: "../../assets/img/logo_imagen.png",
+       size: new google.maps.Size(71, 71),
+       origin: new google.maps.Point(0, 0),
+       anchor: new google.maps.Point(17, 34),
+       scaledSize: new google.maps.Size(25, 25)
+     };
+   	 return new google.maps.Marker({
+   	 	 position: position,
+   	 	 map: map,
+   	 	 title: 'Tu ubicacion',
+   	 	 animation: google.maps.Animation.DROP,
+   	 	 label: "G",
+   	 	 //Icon: img,
+   	 	 });
    }
 
 }
